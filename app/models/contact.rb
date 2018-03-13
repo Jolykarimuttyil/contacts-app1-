@@ -5,8 +5,8 @@ class Contact < ApplicationRecord
   def full_name 
     full_name = "#{first_name}  #{last_name}"
   end
-  def prefix 
-    "#{91} #{phone_number}"
+  def japan_phone_number
+    "+81 #{phone_number}"
   end
  
   def as_json
@@ -14,9 +14,11 @@ class Contact < ApplicationRecord
       id: id,
       full_name: full_name,
       first_name: first_name,
+      middle_name: middle_name,
       last_name: last_name,
       email_address: email_address,
-      phone_number: prefix,
+      phone_number: phone_number,
+      phone_number: japan_phone_number,
       created_at: frinendly_created_at  
     }
   end 
